@@ -9,7 +9,6 @@ def main():
     # Found Market Cap column, replaced '$' with empty space, and dropped 'N/A' indicies
     # replaced 'M' 'B' with appropriate values and represented it as a number, and found 
     # the 10 largest market caps
-    # NOTE: unable to find the corresponding companies :(
 
     market_cap = data['market_cap'].str.replace(r'$', '').dropna()
     print(market_cap.replace({'M': '*1e6', 'B': '*1e9'}, regex=True).map(pd.eval).nlargest(10))
